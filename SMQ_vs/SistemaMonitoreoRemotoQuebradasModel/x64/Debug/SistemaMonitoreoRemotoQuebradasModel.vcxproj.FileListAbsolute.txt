@@ -1,0 +1,2 @@
+C:\Users\Dell\Documents\GitHub\SistemaMonitoreoQuebradas\SMQ_vs\SistemaMonitoreoRemotoQuebradasModel\x64\Debug\SistemaMonitoreoRemotoQuebradasModel.vcxproj.AssemblyReference.cache
+C:\Users\Leonardo\Desktop\proyectoLPOO\SistemaMonitoreoQuebradas\SMQ_vs\SistemaMonitoreoRemotoQuebradasModel\x64\Debug\SistemaMonitoreoRemotoQuebradasModel.vcxproj.AssemblyReference.cache
