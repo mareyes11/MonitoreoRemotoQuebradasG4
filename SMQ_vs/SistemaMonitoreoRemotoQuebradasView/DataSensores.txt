@@ -1,0 +1,11 @@
+1;Huascata;10;10;10
+2;Alfonso Cobian;10;10;10
+3;El Cuadro;10;10;10
+4;Vizcachera-Vallecito;10;10;10
+5;Girasoles;10;10;10
+6;Chacrasana;10;10;10
+7;Chosica;Chosica;10;10;10
+8;San Bartolomé;10;10;10
+9;Huascarán;10;10;10
+10;Cusipata;10;10;10
+11;Los Cóndores;10;10;10

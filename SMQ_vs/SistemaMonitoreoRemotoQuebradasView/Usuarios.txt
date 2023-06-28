@@ -1,0 +1,5 @@
+77326834;1;Marco;Reyes;R3yes*2021
+1;1;adm;Admin;adm
+73677051;1;Leonardo;Quintanilla;charizard123
+73689961;1;Ian;Peralta;hast1905
+0;3;Visualizador;;0

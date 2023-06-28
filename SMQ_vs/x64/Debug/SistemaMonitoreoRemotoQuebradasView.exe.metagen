@@ -1,0 +1,79 @@
+  SistemaMonitoreoRemotoQuebradasView.frmAlertaManuales.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmCrearQuebrada.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmEditarQuebrada.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmEditarUsuario.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmMantNodos.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmMantQuebrada.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmMantUsuarios.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmNuevoUsuario.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmPrincipal.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmInstalarNodoMonitoreo.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmSeleccionarQuebrada.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.frmTestNodo.resources - Embedded, ContainedInManifestFile, 
+  SistemaMonitoreoRemotoQuebradasView.login.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly SistemaMonitoreoRemotoQuebradasView, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SistemaMonitoreoRemotoQuebradasController, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
+	hash=None, flags=None
+Assembly SistemaMonitoreoRemotoQuebradasModel, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.DirectoryServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Messaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class SistemaMonitoreoRemotoQuebradasView.frmAlertaManuales: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmCrearQuebrada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmEditarQuebrada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(SistemaMonitoreoRemotoQuebradasModel.Quebrada): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmEditarUsuario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(SistemaMonitoreoRemotoQuebradasModel.Usuario): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmInstalarNodoMonitoreo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmMantNodos: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmMantQuebrada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmNuevoUsuario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmMantUsuarios: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmTestNodo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmPrincipal: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(SistemaMonitoreoRemotoQuebradasModel.Usuario): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.frmSeleccionarQuebrada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SistemaMonitoreoRemotoQuebradasView.login: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(SistemaMonitoreoRemotoQuebradasModel.Usuario): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
