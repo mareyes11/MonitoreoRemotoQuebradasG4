@@ -6,8 +6,19 @@ using namespace System::Collections::Generic;
 using namespace System::IO; /*Contiene la definicion de la clase File*/
 
 UsuarioController::UsuarioController() {
-
+	this->objConexion = gcnew SqlConnection();
 }
+
+void UsuarioController::abrirConexion() {
+	/*Cadena de conexion: Servidor de BD, usuario de BD, password BD, nombre de la BD*/
+	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20180282;User Id=a20180282;Password=XaJ2fSGG";
+	this->objConexion->Open(); /*Apertura de la conexion a BD*/
+}
+
+void UsuarioController::cerrarConexion() {
+	this->objConexion->Close(); /*Cierra la conexion a BD*/
+}
+
 List<Usuario^>^ UsuarioController::buscarTodos() {
 	/*En esta lista vamos a colocar la información de las carreras que encontremos en el archivo de texto*/
 	List<Usuario^>^ listaUsuarios = gcnew List<Usuario^>();
@@ -46,41 +57,28 @@ List<Usuario^>^ UsuarioController::buscarXNombre(String^ nombreUsuario) {
 	return listaUsuarios;
 }
 Usuario^ UsuarioController::buscarXCodigo(int codigoUsuario) {
-	/*En esta lista vamos a colocar la información de las carreras que encontremos en el archivo de texto*/
 	Usuario^ UsuarioRetornar = gcnew Usuario();
-	List<Usuario^>^ ListaUsuariosEncontrados = gcnew List<Usuario^>();
-	array<String^>^ lineas = File::ReadAllLines("Usuarios.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
-	for each (String ^ lineaQuebrada in lineas) {
-		array<String^>^ datos = lineaQuebrada->Split(separadores->ToCharArray());
-		int codigo = Convert::ToInt32(datos[0]);
-		int nivelAcceso = Convert::ToInt32(datos[1]);
-		String^ nombre = datos[2];
-		String^ apellido = datos[3];
-		String^ password = datos[4];
-		if (codigo == codigoUsuario) {
-			UsuarioRetornar->setCodigo(codigo);
-			UsuarioRetornar->setNivelAcceso(nivelAcceso);
-			UsuarioRetornar->setNombre(nombre);
-			UsuarioRetornar->setApellido(apellido);
-			UsuarioRetornar->setPassword(password);
-			ListaUsuariosEncontrados->Add(UsuarioRetornar);
-		}
+	abrirConexion();
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+	objSentencia->CommandText = "select * from Usuario where codigo=" + codigoUsuario;
+	/*Aqui ejecuto la sentencia en la Base de Datos*/
+	/*Para Select siempre sera ExecuteReader*/
+	/*Para select siempre va a devolver un SqlDataReader*/
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		int codigo = safe_cast<int>(objData[0]);
+		int nivelAcceso = safe_cast<int>(objData[1]);
+		String^ nombre = safe_cast<String^>(objData[2]);
+		String^ apellido = safe_cast<String^>(objData[3]);
+		String^ password = safe_cast<String^>(objData[4]);
+		UsuarioRetornar = gcnew Usuario(codigo, nivelAcceso, nombre, apellido, password);
 	}
-	switch (ListaUsuariosEncontrados->Count)
-	{
-	case 0:
-		UsuarioRetornar->setCodigo(0);
-		;//Indica que no se encontro ningun U. con ese codigo
-		break;
-	case 1:
-		//Si solo se encontro una quebrada con ese codigo, retornar 
-		break;
-	default:
-		UsuarioRetornar->setCodigo(-1);//Si se encuentra mas de una quebrada , se indica con -1 en el id
-		break;
-	}
-	return UsuarioRetornar;
+		cerrarConexion();
+		return UsuarioRetornar;
 }
 List<Usuario^>^ UsuarioController::buscarUsuarios(String^ nombreUsuario) {
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
@@ -173,34 +171,30 @@ void UsuarioController::actualizarUsuario(int codigo, int nivelAcceso, String^ n
 	escribirArchivo(listaUsuarios);
 }
 
-List<Usuario^>^ UsuarioController::buscarUsuariosxNombrexId(String^ nombreBuscar, String^ codigoBuscar) {
+List<Usuario^>^ UsuarioController::buscarUsuariosxApellidoxId(String^ apellidoBuscar, String^ codigoBuscar) {
 	/*En esta lista vamos a colocar la información de las carreras que encontremos en el archivo de texto*/
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
-	array<String^>^ lineas = File::ReadAllLines("Usuarios.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
-	for each (String ^ lineaUsuario in lineas) {
-		array<String^>^ datos = lineaUsuario->Split(separadores->ToCharArray());
-		int codigo = Convert::ToInt32(datos[0]);
-		int nivelAcceso = Convert::ToInt32(datos[1]);
-		String^ nombre = datos[2];
-		String^ apellido = datos[3];
-		String^ password = datos[4];
-		if (nombre->Contains(nombreBuscar)) {
-			Usuario^ objUsuario = gcnew Usuario(codigo, nivelAcceso, nombre, apellido, password);
-			listaUsuariosEncontrados->Add(objUsuario);
-		}
+	abrirConexion();
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+	objSentencia->CommandText = "select * from Usuario where codigo like '" + codigoBuscar + "%' and apellido like '" + apellidoBuscar + "%';";
+	/*Aqui ejecuto la sentencia en la Base de Datos*/
+	/*Para Select siempre sera ExecuteReader*/
+	/*Para select siempre va a devolver un SqlDataReader*/
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		int codigo = safe_cast<int>(objData[0]);
+		int nivelAcceso = safe_cast<int>(objData[1]);
+		String^ nombre = safe_cast<String^>(objData[2]);
+		String^ apellido = safe_cast<String^>(objData[3]);
+		String^ password = safe_cast<String^>(objData[4]);
+		Usuario^ objUsuario = gcnew Usuario(codigo, nivelAcceso, nombre, apellido, password);
+		listaUsuariosEncontrados->Add(objUsuario);
 	}
-	if (codigoBuscar != ("")) {
-		List<Usuario^>^ listaUsuariosId = gcnew List<Usuario^>();
-		for (int i = 0; i < listaUsuariosEncontrados->Count; i++) {
-			if (Convert::ToString(listaUsuariosEncontrados[i]->getCodigo())->Contains(codigoBuscar)) {
-				listaUsuariosId->Add(listaUsuariosEncontrados[i]);
-				break;
-			}
-		}
-		return listaUsuariosId;
-	}
-	else
+	cerrarConexion();
 		return listaUsuariosEncontrados;
 
 }
