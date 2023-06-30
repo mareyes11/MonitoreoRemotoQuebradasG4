@@ -63,7 +63,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 
 
 	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::ProgressBar^ progressBarTemperatura;
+
 
 	private: System::Windows::Forms::Label^ labelTemperatura;
 
@@ -77,6 +77,8 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Label^ labelRawData;
+	private: System::Windows::Forms::TrackBar^ trackBarTemperatura;
+	private: System::Windows::Forms::CheckBox^ checkBoxLluvia;
 
 
 
@@ -107,16 +109,17 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->progressBarTemperatura = (gcnew System::Windows::Forms::ProgressBar());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->checkBoxLluvia = (gcnew System::Windows::Forms::CheckBox());
+			this->labelTemperatura = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->trackBarTemperatura = (gcnew System::Windows::Forms::TrackBar());
 			this->labelHumedad = (gcnew System::Windows::Forms::Label());
 			this->progressBarHumedad = (gcnew System::Windows::Forms::ProgressBar());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->labelTemperatura = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -130,6 +133,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->groupBox3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->groupBox2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBarTemperatura))->BeginInit();
 			this->groupBox4->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -252,26 +256,18 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
-			// progressBarTemperatura
-			// 
-			this->progressBarTemperatura->Location = System::Drawing::Point(7, 32);
-			this->progressBarTemperatura->Name = L"progressBarTemperatura";
-			this->progressBarTemperatura->Size = System::Drawing::Size(113, 20);
-			this->progressBarTemperatura->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
-			this->progressBarTemperatura->TabIndex = 0;
-			this->progressBarTemperatura->Value = 50;
-			// 
 			// groupBox2
 			// 
+			this->groupBox2->Controls->Add(this->checkBoxLluvia);
+			this->groupBox2->Controls->Add(this->labelTemperatura);
+			this->groupBox2->Controls->Add(this->label9);
+			this->groupBox2->Controls->Add(this->label8);
+			this->groupBox2->Controls->Add(this->trackBarTemperatura);
 			this->groupBox2->Controls->Add(this->labelHumedad);
 			this->groupBox2->Controls->Add(this->progressBarHumedad);
 			this->groupBox2->Controls->Add(this->label11);
 			this->groupBox2->Controls->Add(this->label12);
 			this->groupBox2->Controls->Add(this->label14);
-			this->groupBox2->Controls->Add(this->labelTemperatura);
-			this->groupBox2->Controls->Add(this->progressBarTemperatura);
-			this->groupBox2->Controls->Add(this->label8);
-			this->groupBox2->Controls->Add(this->label9);
 			this->groupBox2->Controls->Add(this->label6);
 			this->groupBox2->Location = System::Drawing::Point(7, 469);
 			this->groupBox2->Name = L"groupBox2";
@@ -279,21 +275,77 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->groupBox2->TabIndex = 1;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Data sensores";
+			this->groupBox2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &frmInstalarNodoMonitoreo::groupBox2_Paint);
+			// 
+			// checkBoxLluvia
+			// 
+			this->checkBoxLluvia->AutoCheck = false;
+			this->checkBoxLluvia->AutoSize = true;
+			this->checkBoxLluvia->BackColor = System::Drawing::SystemColors::MenuHighlight;
+			this->checkBoxLluvia->CheckAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->checkBoxLluvia->Location = System::Drawing::Point(102, 19);
+			this->checkBoxLluvia->Name = L"checkBoxLluvia";
+			this->checkBoxLluvia->Size = System::Drawing::Size(105, 17);
+			this->checkBoxLluvia->TabIndex = 18;
+			this->checkBoxLluvia->Text = L"Lluvia detectada";
+			this->checkBoxLluvia->UseVisualStyleBackColor = false;
+			// 
+			// labelTemperatura
+			// 
+			this->labelTemperatura->AutoSize = true;
+			this->labelTemperatura->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->labelTemperatura->Location = System::Drawing::Point(39, 48);
+			this->labelTemperatura->Name = L"labelTemperatura";
+			this->labelTemperatura->Size = System::Drawing::Size(32, 15);
+			this->labelTemperatura->TabIndex = 10;
+			this->labelTemperatura->Text = L"temp";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6));
+			this->label9->Location = System::Drawing::Point(39, 83);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(25, 9);
+			this->label9->TabIndex = 11;
+			this->label9->Text = L"-20°C";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6));
+			this->label8->Location = System::Drawing::Point(39, 16);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(26, 9);
+			this->label8->TabIndex = 10;
+			this->label8->Text = L"100°C";
+			// 
+			// trackBarTemperatura
+			// 
+			this->trackBarTemperatura->Enabled = false;
+			this->trackBarTemperatura->Location = System::Drawing::Point(7, 16);
+			this->trackBarTemperatura->Maximum = 100;
+			this->trackBarTemperatura->Minimum = -20;
+			this->trackBarTemperatura->Name = L"trackBarTemperatura";
+			this->trackBarTemperatura->Orientation = System::Windows::Forms::Orientation::Vertical;
+			this->trackBarTemperatura->Size = System::Drawing::Size(45, 78);
+			this->trackBarTemperatura->SmallChange = 10;
+			this->trackBarTemperatura->TabIndex = 2;
+			this->trackBarTemperatura->TickFrequency = 10;
 			// 
 			// labelHumedad
 			// 
 			this->labelHumedad->AutoSize = true;
 			this->labelHumedad->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->labelHumedad->Location = System::Drawing::Point(192, 56);
+			this->labelHumedad->Location = System::Drawing::Point(155, 96);
 			this->labelHumedad->Name = L"labelHumedad";
-			this->labelHumedad->Size = System::Drawing::Size(46, 15);
+			this->labelHumedad->Size = System::Drawing::Size(29, 15);
 			this->labelHumedad->TabIndex = 14;
-			this->labelHumedad->Text = L"idNodo ";
+			this->labelHumedad->Text = L"hum";
 			// 
 			// progressBarHumedad
 			// 
-			this->progressBarHumedad->Location = System::Drawing::Point(139, 32);
-			this->progressBarHumedad->Maximum = 1024;
+			this->progressBarHumedad->Location = System::Drawing::Point(102, 72);
 			this->progressBarHumedad->Name = L"progressBarHumedad";
 			this->progressBarHumedad->Size = System::Drawing::Size(113, 20);
 			this->progressBarHumedad->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
@@ -305,7 +357,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->label11->AutoSize = true;
 			this->label11->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6));
-			this->label11->Location = System::Drawing::Point(226, 18);
+			this->label11->Location = System::Drawing::Point(189, 58);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(26, 11);
 			this->label11->TabIndex = 15;
@@ -316,7 +368,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->label12->AutoSize = true;
 			this->label12->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6));
-			this->label12->Location = System::Drawing::Point(138, 18);
+			this->label12->Location = System::Drawing::Point(101, 58);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(18, 11);
 			this->label12->TabIndex = 16;
@@ -325,52 +377,20 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(136, 56);
+			this->label14->Location = System::Drawing::Point(99, 96);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(56, 13);
 			this->label14->TabIndex = 13;
 			this->label14->Text = L"Humedad:";
 			// 
-			// labelTemperatura
-			// 
-			this->labelTemperatura->AutoSize = true;
-			this->labelTemperatura->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->labelTemperatura->Location = System::Drawing::Point(74, 56);
-			this->labelTemperatura->Name = L"labelTemperatura";
-			this->labelTemperatura->Size = System::Drawing::Size(46, 15);
-			this->labelTemperatura->TabIndex = 10;
-			this->labelTemperatura->Text = L"idNodo ";
-			// 
-			// label8
-			// 
-			this->label8->AutoSize = true;
-			this->label8->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6));
-			this->label8->Location = System::Drawing::Point(92, 18);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(28, 11);
-			this->label8->TabIndex = 10;
-			this->label8->Text = L"100°C";
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6));
-			this->label9->Location = System::Drawing::Point(6, 18);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(27, 11);
-			this->label9->TabIndex = 11;
-			this->label9->Text = L"-20°C";
-			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(4, 56);
+			this->label6->Location = System::Drawing::Point(1, 97);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(70, 13);
+			this->label6->Size = System::Drawing::Size(67, 13);
 			this->label6->TabIndex = 1;
-			this->label6->Text = L"Temperatura:";
+			this->label6->Text = L"Temperatura";
 			// 
 			// button2
 			// 
@@ -442,9 +462,9 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->labelRawData->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->labelRawData->Location = System::Drawing::Point(9, 594);
 			this->labelRawData->Name = L"labelRawData";
-			this->labelRawData->Size = System::Drawing::Size(46, 15);
+			this->labelRawData->Size = System::Drawing::Size(63, 15);
 			this->labelRawData->TabIndex = 17;
-			this->labelRawData->Text = L"idNodo ";
+			this->labelRawData->Text = L"tramaDatos";
 			// 
 			// frmInstalarNodoMonitoreo
 			// 
@@ -467,6 +487,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBarTemperatura))->EndInit();
 			this->groupBox4->ResumeLayout(false);
 			this->groupBox4->PerformLayout();
 			this->ResumeLayout(false);
@@ -552,14 +573,29 @@ private: System::Void serialPort1_DataReceived(System::Object^ sender, System::I
 	lectura = serialPort1->ReadLine();
 	String^ separador = " ";
 	datosSeparados = lectura->Split(separador->ToCharArray());
+	this->groupBox2->Invalidate();
 	/*Salida datos serial :
 	nodoID | incX_deg | incY_deg | accX_g | accY_g | accZ_g | tBMP_degC | pBMP_Pa | hSoil_per | rain | alarm */
-	//progressBarHumedad->Value = Convert::ToInt32(datosSeparados[8]);
+	//=progressBarHumedad->Value = Convert::ToInt32(datosSeparados[8]);
 	
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->labelRawData->Text = lectura;
-	//this->progressBarHumedad->Value = Convert::ToInt32(datosSeparados[8]);
+	
+}
+private: System::Void groupBox2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	if (conectado) {
+		this->labelRawData->Text = lectura;
+		this->progressBarHumedad->Value = Convert::ToInt32(datosSeparados[8]) * 100 / 1024;
+		this->labelHumedad->Text = Convert::ToString(Convert::ToInt32(datosSeparados[8]) * 100 / 1024) + "%";
+		this->labelTemperatura->Text = Convert::ToString(datosSeparados[6]) + "°C";
+		this->trackBarTemperatura->Value = Convert::ToDouble(datosSeparados[6]);
+		if (Convert::ToInt32(datosSeparados[9]) == 1) {
+			this->checkBoxLluvia->Checked = true;
+		}
+		else this->checkBoxLluvia->Checked = false;
+	}
+	
+
 }
 };
 }
