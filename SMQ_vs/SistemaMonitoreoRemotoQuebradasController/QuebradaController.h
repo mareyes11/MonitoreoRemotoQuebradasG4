@@ -3,17 +3,20 @@
 namespace SistemaMonitoreoRemotoQuebradasController
 {
 	using namespace System;
+	using namespace System::Data::SqlClient;
 	using namespace System::Collections::Generic;
 	using namespace SistemaMonitoreoRemotoQuebradasModel;
 
 	public ref class QuebradaController
 	{
 	private:	
-		/*No suelen tener atributos -dado el esquema MVC planteado*/
+		SqlConnection^ objConexion;
 	public:
 		QuebradaController();
+		void abrirConexion();
+		void cerrarConexion();
 		List<Quebrada^>^ buscarTodasQuebradas();
-		List<Quebrada^>^ buscarQuebradasXNombre(String^ nombreQuebrada);
+		Quebrada^ buscarQuebradaXNombre(String^ nombreQuebrada);
 		Quebrada^ buscarQuebradaXCodigo(int codigoQuebrada);
 		List<Quebrada^>^ buscarQuebradasxNombxId(String^ nombreQuebrada, String^ codigoQuebrada);
 		void eliminarQuebrada(int codigoQuebradaEliminar);
