@@ -1,1 +1,16 @@
-﻿  SistemaMonitoreoRemotoQuebradasModel.vcxproj -> C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\x64\Debug\SistemaMonitoreoRemotoQuebradasModel.dll
+﻿  burbujaNivel.cpp
+  Quebrada.cpp
+  NodoMonitoreo.cpp
+  ReporteDiario.cpp
+  SensorHumedad.cpp
+  SensorLluvia.cpp
+  SensorInclinacion.cpp
+  SensorAcelerometro.cpp
+  SensorNivelAgua.cpp
+  AlertaFueraVN.cpp
+  SensorTempNodo.cpp
+  Usuario.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Generando código...
+  burbujaNivel.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+  SistemaMonitoreoRemotoQuebradasModel.vcxproj -> C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\x64\Debug\SistemaMonitoreoRemotoQuebradasModel.dll

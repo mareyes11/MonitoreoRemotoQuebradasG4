@@ -147,6 +147,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->Name = L"login";
 			this->Text = L"login";
 			this->Load += gcnew System::EventHandler(this, &login::login_Load);
+			this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &login::login_KeyPress);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -199,7 +200,7 @@ private: System::Void login_Load(System::Object^ sender, System::EventArgs^ e) {
 	
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ usuarioVisualizador = objUsuarioController->buscarXCodigo(0);
+	Usuario^ usuarioVisualizador = objUsuarioController->buscarXCodigo(1);
 	usuarioVisualizador->setNombre("Visualizador");
 	this->usuarioLogeado->setNombre(usuarioVisualizador->getNombre());
 	this->usuarioLogeado->setApellido(usuarioVisualizador->getApellido());
@@ -209,6 +210,9 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	frmPrincipal^ ventanaPrincipal = gcnew frmPrincipal(usuarioLogeado);
 	this->Hide();
 	ventanaPrincipal->Show();
+	
+}
+private: System::Void login_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 	
 }
 };
