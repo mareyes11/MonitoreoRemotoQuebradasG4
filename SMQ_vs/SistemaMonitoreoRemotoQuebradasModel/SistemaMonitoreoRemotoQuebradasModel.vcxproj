@@ -113,6 +113,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AlertaFueraVN.h" />
+    <ClInclude Include="burbujaNivel.h" />
     <ClInclude Include="ReporteDiario.h" />
     <ClInclude Include="SensorTempNodo.h" />
     <ClInclude Include="Usuario.h" />
@@ -125,6 +126,7 @@
     <ClInclude Include="Quebrada.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="burbujaNivel.cpp" />
     <ClCompile Include="Quebrada.cpp" />
     <ClCompile Include="NodoMonitoreo.cpp" />
     <ClCompile Include="ReporteDiario.cpp" />
@@ -136,6 +138,9 @@
     <ClCompile Include="AlertaFueraVN.cpp" />
     <ClCompile Include="SensorTempNodo.cpp" />
     <ClCompile Include="Usuario.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

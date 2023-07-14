@@ -3,8 +3,26 @@ Assembly SistemaMonitoreoRemotoQuebradasModel, Version=0.0.*, Culture=Todos los 
 	hash=SHA1, flags=PublicKey
 Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
 Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class SistemaMonitoreoRemotoQuebradasModel.burbujaNivel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, Int32, Int32, Int32, Int32, System.Drawing.Color): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getInicioX(): PrivateScope, Public, HideBySig
+    setInicioX(Int32): PrivateScope, Public, HideBySig
+    getInicioY(): PrivateScope, Public, HideBySig
+    setInicioY(Int32): PrivateScope, Public, HideBySig
+    getAncho(): PrivateScope, Public, HideBySig
+    setAncho(Int32): PrivateScope, Public, HideBySig
+    getAngX(): PrivateScope, Public, HideBySig
+    setAngX(Int32): PrivateScope, Public, HideBySig
+    getAngY(): PrivateScope, Public, HideBySig
+    setAngY(Int32): PrivateScope, Public, HideBySig
+    getColor(): PrivateScope, Public, HideBySig
+    setColor(Color): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasModel.Quebrada: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32, System.String, Double, Double, Double, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

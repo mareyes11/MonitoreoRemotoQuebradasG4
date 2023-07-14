@@ -1,20 +1,90 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: El directorio intermedio (x64\Debug\) contiene archivos compartidos de otro proyecto (SistemaMonitoreoRemotoQuebradasViews.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
-  frmAlertaManuales.cpp
-  frmCrearQuebrada.cpp
-  frmEditarQuebrada.cpp
-  frmEditarUsuario.cpp
+﻿D:\Program Files\Microsoft Visual Studio\2022\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: El directorio intermedio (x64\Debug\) contiene archivos compartidos de otro proyecto (SistemaMonitoreoRemotoQuebradasViews.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
   frmInstalarNodoMonitoreo.cpp
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(669,55): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(671,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(672,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(684,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(685,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(686,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(687,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(690,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(691,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(692,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(693,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(697,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(698,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(699,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(700,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(701,9): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
   frmMantNodos.cpp
-  frmMantQuebrada.cpp
-  frmMantUsuarios.cpp
-  frmNuevoUsuario.cpp
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(669,55): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(671,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(672,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(684,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(685,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(686,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(687,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(690,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(691,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(692,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(693,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(697,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(698,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(699,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(700,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(701,9): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
   frmPrincipal.cpp
-  frmSeleccionarQuebrada.cpp
-  frmTestNodo.cpp
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(669,55): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(671,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(672,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(684,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(685,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(686,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(687,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(690,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(691,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(692,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(693,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(697,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(698,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(699,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(700,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(701,9): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
   login.cpp
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(669,55): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(671,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(672,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(684,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(685,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(686,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(687,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(690,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(691,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(692,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(693,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(697,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(698,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(699,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(700,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(701,9): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
   main.cpp
-C:\Users\ianpe\Documents\GitHub\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\main.cpp(8,34): warning C4829: Parámetros posiblemente incorrectos para la función main. Utilice 'int main(Platform::Array<Platform::String^>^ argv)'
-  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(669,55): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(671,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(672,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(684,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(685,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(686,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(687,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(690,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(691,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(692,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(693,10): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(697,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(698,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(699,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(700,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\frmInstalarNodoMonitoreo.h(701,9): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\SistemaMonitoreoRemotoQuebradasView\main.cpp(8,34): warning C4829: Parámetros posiblemente incorrectos para la función main. Utilice 'int main(Platform::Array<Platform::String^>^ argv)'
   Generando código...
   frmAlertaManuales.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  SistemaMonitoreoRemotoQuebradasView.vcxproj -> C:\Users\ianpe\Documents\GitHub\MonitoreoRemotoQuebradasG4\SMQ_vs\x64\Debug\SistemaMonitoreoRemotoQuebradasView.exe
+  SistemaMonitoreoRemotoQuebradasView.vcxproj -> C:\Users\Dell\Documents\GitHub\MQR\MonitoreoRemotoQuebradasG4\SMQ_vs\x64\Debug\SistemaMonitoreoRemotoQuebradasView.exe
