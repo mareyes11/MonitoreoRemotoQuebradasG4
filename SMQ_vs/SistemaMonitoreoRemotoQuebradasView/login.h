@@ -157,7 +157,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 		UsuarioController^ objUsuarioController = gcnew UsuarioController();
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-		if (this->textBox1->Modified) {
+		if (this->textBox1->Modified && this->textBox1->Text != "") {
 			int codigoUsuario = Convert::ToInt32(this->textBox1->Text);
 			String^ password = this->textBox2->Text;		
 			Usuario^ objUsuario = objUsuarioController->buscarXCodigo(codigoUsuario);
@@ -200,7 +200,7 @@ private: System::Void login_Load(System::Object^ sender, System::EventArgs^ e) {
 	
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ usuarioVisualizador = objUsuarioController->buscarXCodigo(1);
+	Usuario^ usuarioVisualizador = objUsuarioController->buscarXCodigo(0);
 	usuarioVisualizador->setNombre("Visualizador");
 	this->usuarioLogeado->setNombre(usuarioVisualizador->getNombre());
 	this->usuarioLogeado->setApellido(usuarioVisualizador->getApellido());

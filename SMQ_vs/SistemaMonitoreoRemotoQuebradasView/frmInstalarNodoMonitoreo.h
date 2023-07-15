@@ -754,9 +754,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 		NodoMonitoreo^ nuevoNodo = gcnew NodoMonitoreo(idNodoNuevo, posX, posY, idQuebradaSeleccionada, comName, fechaCreacion);
 
 		NodosController^ objNodoController = gcnew NodosController();
-		List<NodoMonitoreo^>^ listaNodos = objNodoController->buscarTodosNodos();
-		listaNodos->Add(nuevoNodo);
-		objNodoController->escribirArchivoNodos(listaNodos);
+		objNodoController->agregarNodo(nuevoNodo);
 		MessageBox::Show("Nodo creado en el sistema con exito");
 		this->Close();
 		if (conectado) {

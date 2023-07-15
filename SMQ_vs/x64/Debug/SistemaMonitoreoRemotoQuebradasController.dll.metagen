@@ -18,8 +18,8 @@ Class SistemaMonitoreoRemotoQuebradasController.NodosController: AutoLayout, Ans
     buscarNodoXId(Int32): PrivateScope, Public, HideBySig
     buscarNodoxIdQuebrada(Int32): PrivateScope, Public, HideBySig
     eliminarNodo(Int32): PrivateScope, Public, HideBySig
-    escribirArchivoNodos(List`1): PrivateScope, Public, HideBySig
-    escribirArchivoNodoEditado(NodoMonitoreo): PrivateScope, Public, HideBySig
+    agregarNodo(NodoMonitoreo): PrivateScope, Public, HideBySig
+    editarNodo(NodoMonitoreo): PrivateScope, Public, HideBySig
     getIdDisponible(): PrivateScope, Public, HideBySig
     cargarDataSensores(String, NodoMonitoreo): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasController.QuebradaController: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
@@ -32,8 +32,8 @@ Class SistemaMonitoreoRemotoQuebradasController.QuebradaController: AutoLayout, 
     buscarQuebradaXCodigo(Int32): PrivateScope, Public, HideBySig
     buscarQuebradasxNombxId(String, String): PrivateScope, Public, HideBySig
     eliminarQuebrada(Int32): PrivateScope, Public, HideBySig
-    escribirArchivoQuebradas(List`1): PrivateScope, Public, HideBySig
-    escribirArchivoQuebradaEditada(Quebrada): PrivateScope, Public, HideBySig
+    EditarQuebrada(Quebrada): PrivateScope, Public, HideBySig
+    AgregarQuebrada(Quebrada): PrivateScope, Public, HideBySig
     getCodigoQuebradaDisponible(): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasController.UsuarioController: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -41,13 +41,9 @@ Class SistemaMonitoreoRemotoQuebradasController.UsuarioController: AutoLayout, A
     abrirConexion(): PrivateScope, Public, HideBySig
     cerrarConexion(): PrivateScope, Public, HideBySig
     buscarTodos(): PrivateScope, Public, HideBySig
-    buscarXNombre(String): PrivateScope, Public, HideBySig
     buscarXCodigo(Int32): PrivateScope, Public, HideBySig
-    buscarUsuarios(String): PrivateScope, Public, HideBySig
     eliminarUsuario(Int32): PrivateScope, Public, HideBySig
-    escribirArchivo(List`1): PrivateScope, Public, HideBySig
     existeUsuario(Int32): PrivateScope, Public, HideBySig
     registrarUsuario(Int32, Int32, String, String, String): PrivateScope, Public, HideBySig
-    buscarUsuario(Int32): PrivateScope, Public, HideBySig
     actualizarUsuario(Int32, Int32, String, String, String): PrivateScope, Public, HideBySig
     buscarUsuariosxApellidoxId(String, String): PrivateScope, Public, HideBySig

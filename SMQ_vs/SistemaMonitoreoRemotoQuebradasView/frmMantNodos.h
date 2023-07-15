@@ -62,12 +62,18 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button7;
+
+
+
+
+
+	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::TextBox^ textBox1;
 
 
 
@@ -102,15 +108,16 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
@@ -234,9 +241,9 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->AllowUserToResizeRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->Column1,
-					this->Column3, this->Column4, this->Column6, this->Column2
+					this->Column3, this->Column4, this->Column6, this->Column5, this->Column2
 			});
 			this->dataGridView1->GridColor = System::Drawing::SystemColors::MenuHighlight;
 			this->dataGridView1->Location = System::Drawing::Point(9, 29);
@@ -249,6 +256,49 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView1->Size = System::Drawing::Size(966, 231);
 			this->dataGridView1->TabIndex = 0;
+			// 
+			// button6
+			// 
+			this->button6->Location = System::Drawing::Point(878, 709);
+			this->button6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(112, 35);
+			this->button6->TabIndex = 14;
+			this->button6->Text = L"Cancelar";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &frmMantNodos::button6_Click);
+			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(724, 709);
+			this->button5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(112, 35);
+			this->button5->TabIndex = 13;
+			this->button5->Text = L"Eliminar";
+			this->button5->UseVisualStyleBackColor = true;
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(603, 709);
+			this->button3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(112, 35);
+			this->button3->TabIndex = 12;
+			this->button3->Text = L"Editar";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmMantNodos::button3_Click);
+			// 
+			// button7
+			// 
+			this->button7->Location = System::Drawing::Point(482, 709);
+			this->button7->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(112, 35);
+			this->button7->TabIndex = 11;
+			this->button7->Text = L"Nuevo";
+			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &frmMantNodos::button7_Click);
 			// 
 			// Column1
 			// 
@@ -282,6 +332,14 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->Column6->ReadOnly = true;
 			this->Column6->Width = 150;
 			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"COM Port";
+			this->Column5->MinimumWidth = 8;
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
+			this->Column5->Width = 150;
+			// 
 			// Column2
 			// 
 			this->Column2->HeaderText = L"Fecha creacion";
@@ -289,48 +347,6 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->Column2->Name = L"Column2";
 			this->Column2->ReadOnly = true;
 			this->Column2->Width = 150;
-			// 
-			// button6
-			// 
-			this->button6->Location = System::Drawing::Point(878, 709);
-			this->button6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(112, 35);
-			this->button6->TabIndex = 14;
-			this->button6->Text = L"Cancelar";
-			this->button6->UseVisualStyleBackColor = true;
-			this->button6->Click += gcnew System::EventHandler(this, &frmMantNodos::button6_Click);
-			// 
-			// button5
-			// 
-			this->button5->Location = System::Drawing::Point(724, 709);
-			this->button5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(112, 35);
-			this->button5->TabIndex = 13;
-			this->button5->Text = L"Eliminar";
-			this->button5->UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(603, 709);
-			this->button3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(112, 35);
-			this->button3->TabIndex = 12;
-			this->button3->Text = L"Editar";
-			this->button3->UseVisualStyleBackColor = true;
-			// 
-			// button7
-			// 
-			this->button7->Location = System::Drawing::Point(482, 709);
-			this->button7->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(112, 35);
-			this->button7->TabIndex = 11;
-			this->button7->Text = L"Nuevo";
-			this->button7->UseVisualStyleBackColor = true;
-			this->button7->Click += gcnew System::EventHandler(this, &frmMantNodos::button7_Click);
 			// 
 			// frmMantNodos
 			// 
@@ -380,12 +396,13 @@ private: void mostrarGrilla(List<NodoMonitoreo^>^ lista) {
 	if (final >= 1) {
 		for (int i = 0; i < final; i++) {
 			NodoMonitoreo^ objQuebrada = lista[i];
-			array<String^>^ filaQuebrada = gcnew array<String^>(5);
+			array<String^>^ filaQuebrada = gcnew array<String^>(6);
 			filaQuebrada[0] = Convert::ToString(objQuebrada->getId());
 			filaQuebrada[1] = Convert::ToString(objQuebrada->getPosicionX());
 			filaQuebrada[2] = Convert::ToString(objQuebrada->getPosicionY());
 			filaQuebrada[3] = Convert::ToString(objQuebrada->getQuebradaId());
-			filaQuebrada[4] = objQuebrada->getFechaCreacion();
+			filaQuebrada[4] = objQuebrada->getCOMPort();
+			filaQuebrada[5] = objQuebrada->getFechaCreacion();
 			this->dataGridView1->Rows->Add(filaQuebrada);
 		}
 	}
@@ -434,6 +451,8 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	else if (this->textBox1->Text == "") {
 		mostrarGrilla(listaNMTemp);
 	}
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
