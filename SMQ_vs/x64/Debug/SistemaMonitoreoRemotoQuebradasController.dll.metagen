@@ -5,13 +5,18 @@ Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934
 	hash=None, flags=None
 Assembly SistemaMonitoreoRemotoQuebradasModel, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
 	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
 Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Class SistemaMonitoreoRemotoQuebradasController.NodosController: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
+    abrirConexion(): PrivateScope, Public, HideBySig
+    cerrarConexion(): PrivateScope, Public, HideBySig
     buscarTodosNodos(): PrivateScope, Public, HideBySig
     buscarNodoXId(Int32): PrivateScope, Public, HideBySig
+    buscarNodoxIdQuebrada(Int32): PrivateScope, Public, HideBySig
     eliminarNodo(Int32): PrivateScope, Public, HideBySig
     escribirArchivoNodos(List`1): PrivateScope, Public, HideBySig
     escribirArchivoNodoEditado(NodoMonitoreo): PrivateScope, Public, HideBySig
@@ -20,8 +25,10 @@ Class SistemaMonitoreoRemotoQuebradasController.NodosController: AutoLayout, Ans
 Class SistemaMonitoreoRemotoQuebradasController.QuebradaController: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
+    abrirConexion(): PrivateScope, Public, HideBySig
+    cerrarConexion(): PrivateScope, Public, HideBySig
     buscarTodasQuebradas(): PrivateScope, Public, HideBySig
-    buscarQuebradasXNombre(String): PrivateScope, Public, HideBySig
+    buscarQuebradaXNombre(String): PrivateScope, Public, HideBySig
     buscarQuebradaXCodigo(Int32): PrivateScope, Public, HideBySig
     buscarQuebradasxNombxId(String, String): PrivateScope, Public, HideBySig
     eliminarQuebrada(Int32): PrivateScope, Public, HideBySig
@@ -31,6 +38,8 @@ Class SistemaMonitoreoRemotoQuebradasController.QuebradaController: AutoLayout, 
 Class SistemaMonitoreoRemotoQuebradasController.UsuarioController: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
+    abrirConexion(): PrivateScope, Public, HideBySig
+    cerrarConexion(): PrivateScope, Public, HideBySig
     buscarTodos(): PrivateScope, Public, HideBySig
     buscarXNombre(String): PrivateScope, Public, HideBySig
     buscarXCodigo(Int32): PrivateScope, Public, HideBySig
@@ -41,4 +50,4 @@ Class SistemaMonitoreoRemotoQuebradasController.UsuarioController: AutoLayout, A
     registrarUsuario(Int32, Int32, String, String, String): PrivateScope, Public, HideBySig
     buscarUsuario(Int32): PrivateScope, Public, HideBySig
     actualizarUsuario(Int32, Int32, String, String, String): PrivateScope, Public, HideBySig
-    buscarUsuariosxNombrexId(String, String): PrivateScope, Public, HideBySig
+    buscarUsuariosxApellidoxId(String, String): PrivateScope, Public, HideBySig
