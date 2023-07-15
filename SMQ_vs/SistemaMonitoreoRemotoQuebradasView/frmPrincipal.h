@@ -83,6 +83,8 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 	protected:
 
 	private: Usuario^ objUsuarioLogeado;
+	private: List<Quebrada^>^ quebradasDisponibles;
+	private: QuebradaController^ objQuebradaController = gcnew QuebradaController();
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ labelUsuario;
@@ -383,15 +385,15 @@ private: System::Void nodosDeMonitoreoToolStripMenuItem_Click(System::Object^ se
 }
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+	   
 private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	String^ quebradaSeleccionada = this->listBox1->Text;
-	String^ separadores = " ";
-	array<String^>^ datos = quebradaSeleccionada->Split(separadores->ToCharArray());
-	// Retrieve the image.
-
+	actualizaImagenQuebrada();
+}
+private: void actualizaImagenQuebrada() {
+	String^ codigoQuebradaSeleccionada = Convert::ToString(quebradasDisponibles[this->listBox1->SelectedIndex]->getCodigo());
 	this->pictureBox1->Image = nullptr;
-	this->pictureBox1->Image = this->pictureBox1->Image->FromFile(datos[0] + ".jpg");
-		
+	this->pictureBox1->Image = this->pictureBox1->Image->FromFile(codigoQuebradaSeleccionada + ".jpg");
+
 }
 private: System::Void mantenimientoUsuariosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (objUsuarioLogeado->getNivelAcceso() == 1) {
@@ -409,13 +411,17 @@ private: System::Void testToolStripMenuItem_Click(System::Object^ sender, System
 	ventanaTestNodo->Show();
 }
 private: System::Void frmPrincipal_Load(System::Object^ sender, System::EventArgs^ e) {
-	this->listBox1->ClearSelected();
-	QuebradaController^ objQuebradaController = gcnew QuebradaController();
-	List<Quebrada^>^ listaQuebradas = objQuebradaController->buscarTodasQuebradas();
-	int final = listaQuebradas->Count;
-	for (int i = 0; i < final; i++) {
-		this->listBox1->Items->Add(listaQuebradas[i]->getCodigo() + " " + listaQuebradas[i]->getNombre());
+	
+	/*Precarga Quebradas disponibles*/
+	quebradasDisponibles = this->objQuebradaController->buscarTodasQuebradas();
+	this->listBox1->Items->Clear(); /*Borra todos los valores que tenga el combo box*/
+	for (int i = 0; i < quebradasDisponibles->Count; i++) {
+		this->listBox1->Items->Add(quebradasDisponibles[i]->getNombre());
 	}
+	this->listBox1->SelectedIndex = 0;//Autoseleeciona la primera de la lista de quebradas disponibles
+
+	/*Carga la imagen correspondiente*/
+	actualizaImagenQuebrada();
 	this->labelUsuario->Text = this->objUsuarioLogeado->getNombre() + " " + this->objUsuarioLogeado->getApellido();
 }
 };

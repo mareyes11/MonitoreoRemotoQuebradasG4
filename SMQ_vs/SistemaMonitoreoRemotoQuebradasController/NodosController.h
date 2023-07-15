@@ -21,6 +21,7 @@ namespace SistemaMonitoreoRemotoQuebradasController
 		void escribirArchivoNodos(List<NodoMonitoreo^>^ ListaNodos);
 		void escribirArchivoNodoEditado(NodoMonitoreo^ NodoEditado);
 		int getIdDisponible(void);//Metodo que devuelve un codigo de quebrada disponible
+		NodoMonitoreo^ cargarDataSensores(String^ tramaDatos, NodoMonitoreo^ nodoACargar);
 	};
 
 

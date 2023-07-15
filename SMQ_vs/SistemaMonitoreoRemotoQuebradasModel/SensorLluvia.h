@@ -14,5 +14,11 @@ namespace SistemaMonitoreoRemotoQuebradasModel {
 	public:
 		SensorLluvia();
 		SensorLluvia(int id, int nodoAsociado, int ultimaLectura);
+		int getId();
+		void setId(int id);
+		int getIdNodo();
+		void setIdNodo(int id);
+		void setValor(int lluvia);
+		int getValor();
 	};
 }

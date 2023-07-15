@@ -10,5 +10,12 @@ namespace SistemaMonitoreoRemotoQuebradasModel {
 	public:
 		SensorTempNodo();
 		SensorTempNodo(int id, int idNodo, double ultimaLectura_degC);
+		int getId();
+		void setId(int id);
+		int getIdNodo();
+		void setIdNodo(int id);
+		void setTemperatura(double temperaturaSensor);
+		double getTemperatura();
 	};
+
 }

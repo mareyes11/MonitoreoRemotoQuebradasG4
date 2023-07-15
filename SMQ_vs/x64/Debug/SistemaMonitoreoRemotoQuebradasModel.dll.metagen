@@ -42,23 +42,77 @@ Class SistemaMonitoreoRemotoQuebradasModel.Quebrada: AutoLayout, AnsiClass, Clas
 Class SistemaMonitoreoRemotoQuebradasModel.SensorNivelAgua: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32, Int32, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getId(): PrivateScope, Public, HideBySig
+    setId(Int32): PrivateScope, Public, HideBySig
+    getIdNodo(): PrivateScope, Public, HideBySig
+    setIdNodo(Int32): PrivateScope, Public, HideBySig
+    setPresionCero_hPa(Double): PrivateScope, Public, HideBySig
+    setPresion_hPa(Double): PrivateScope, Public, HideBySig
+    getPresion_hPa(): PrivateScope, Public, HideBySig
+    getColumnaAgua_cm(): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasModel.SensorTempNodo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32, Int32, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getId(): PrivateScope, Public, HideBySig
+    setId(Int32): PrivateScope, Public, HideBySig
+    getIdNodo(): PrivateScope, Public, HideBySig
+    setIdNodo(Int32): PrivateScope, Public, HideBySig
+    setTemperatura(Double): PrivateScope, Public, HideBySig
+    getTemperatura(): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasModel.SensorLluvia: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getId(): PrivateScope, Public, HideBySig
+    setId(Int32): PrivateScope, Public, HideBySig
+    getIdNodo(): PrivateScope, Public, HideBySig
+    setIdNodo(Int32): PrivateScope, Public, HideBySig
+    setValor(Int32): PrivateScope, Public, HideBySig
+    getValor(): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasModel.SensorInclinacion: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32, Int32, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getId(): PrivateScope, Public, HideBySig
+    setId(Int32): PrivateScope, Public, HideBySig
+    getIdNodo(): PrivateScope, Public, HideBySig
+    setIdNodo(Int32): PrivateScope, Public, HideBySig
+    setIncX(Double): PrivateScope, Public, HideBySig
+    setIncY(Double): PrivateScope, Public, HideBySig
+    getIncX(): PrivateScope, Public, HideBySig
+    getIncY(): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasModel.SensorHumedad: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(Int32, Int32, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getId(): PrivateScope, Public, HideBySig
+    setId(Int32): PrivateScope, Public, HideBySig
+    getIdNodo(): PrivateScope, Public, HideBySig
+    setIdNodo(Int32): PrivateScope, Public, HideBySig
+    setRawLectura(Int32): PrivateScope, Public, HideBySig
+    getValorCal1(): PrivateScope, Public, HideBySig
+    setValorCal1(Int32): PrivateScope, Public, HideBySig
+    getValorCal2(): PrivateScope, Public, HideBySig
+    setValorCal2(Int32): PrivateScope, Public, HideBySig
+    getHumedad(): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasModel.SensorAcelerometro: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32, Int32, Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getId(): PrivateScope, Public, HideBySig
+    setId(Int32): PrivateScope, Public, HideBySig
+    getIdNodo(): PrivateScope, Public, HideBySig
+    setIdNodo(Int32): PrivateScope, Public, HideBySig
+    setAccX(Double): PrivateScope, Public, HideBySig
+    setAccY(Double): PrivateScope, Public, HideBySig
+    setAccZ(Double): PrivateScope, Public, HideBySig
+    getAccX(): PrivateScope, Public, HideBySig
+    getAccY(): PrivateScope, Public, HideBySig
+    getAccZ(): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasModel.NodoMonitoreo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(Int32, Double, Double, Int32, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Double, Double, Int32, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(Int32, Double, Double, Int32, System.String, SistemaMonitoreoRemotoQuebradasModel.SensorNivelAgua, SistemaMonitoreoRemotoQuebradasModel.SensorTempNodo, SistemaMonitoreoRemotoQuebradasModel.SensorLluvia, SistemaMonitoreoRemotoQuebradasModel.SensorInclinacion, SistemaMonitoreoRemotoQuebradasModel.SensorHumedad, SistemaMonitoreoRemotoQuebradasModel.SensorAcelerometro): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -70,8 +124,18 @@ Class SistemaMonitoreoRemotoQuebradasModel.NodoMonitoreo: AutoLayout, AnsiClass,
     setPosicionY(Double): PrivateScope, Public, HideBySig
     getQuebradaId(): PrivateScope, Public, HideBySig
     setQuebradaId(Int32): PrivateScope, Public, HideBySig
+    getCOMPort(): PrivateScope, Public, HideBySig
+    setCOMPort(String): PrivateScope, Public, HideBySig
     getFechaCreacion(): PrivateScope, Public, HideBySig
     setFechaCreacion(String): PrivateScope, Public, HideBySig
+    getAlarmaEstado(): PrivateScope, Public, HideBySig
+    setAlarmaEstado(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    getSensorAcc(): PrivateScope, Public, HideBySig
+    getSensorHumedad(): PrivateScope, Public, HideBySig
+    getSensorInc(): PrivateScope, Public, HideBySig
+    getSensorLluvia(): PrivateScope, Public, HideBySig
+    getSensorNivelAgua(): PrivateScope, Public, HideBySig
+    getSensorTemperatura(): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasModel.ReporteDiario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

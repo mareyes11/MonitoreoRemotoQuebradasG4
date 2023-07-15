@@ -62,12 +62,18 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button7;
+
+
+
+
+
+	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::TextBox^ textBox1;
 
 
 
@@ -92,6 +98,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 		void InitializeComponent(void)
 		{
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -105,12 +112,12 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
@@ -129,6 +136,13 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Busqueda por ID";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(43, 33);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->TabIndex = 6;
 			// 
 			// button2
 			// 
@@ -187,6 +201,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"Buscar";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &frmMantNodos::button4_Click);
 			// 
 			// label1
 			// 
@@ -213,9 +228,9 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->AllowUserToResizeRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->Column1,
-					this->Column3, this->Column4, this->Column6, this->Column2
+					this->Column3, this->Column4, this->Column6, this->Column5, this->Column2
 			});
 			this->dataGridView1->GridColor = System::Drawing::SystemColors::MenuHighlight;
 			this->dataGridView1->Location = System::Drawing::Point(6, 19);
@@ -251,6 +266,12 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->Column6->Name = L"Column6";
 			this->Column6->ReadOnly = true;
 			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"COM Port";
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
+			// 
 			// Column2
 			// 
 			this->Column2->HeaderText = L"Fecha creacion";
@@ -275,6 +296,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->button5->TabIndex = 13;
 			this->button5->Text = L"Eliminar";
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &frmMantNodos::button5_Click);
 			// 
 			// button3
 			// 
@@ -294,13 +316,6 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->button7->Text = L"Nuevo";
 			this->button7->UseVisualStyleBackColor = true;
 			this->button7->Click += gcnew System::EventHandler(this, &frmMantNodos::button7_Click);
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(43, 33);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
-			this->textBox1->TabIndex = 6;
 			// 
 			// frmMantNodos
 			// 
@@ -349,12 +364,13 @@ private: void mostrarGrilla(List<NodoMonitoreo^>^ lista) {
 	if (final >= 1) {
 		for (int i = 0; i < final; i++) {
 			NodoMonitoreo^ objQuebrada = lista[i];
-			array<String^>^ filaQuebrada = gcnew array<String^>(5);
+			array<String^>^ filaQuebrada = gcnew array<String^>(6);
 			filaQuebrada[0] = Convert::ToString(objQuebrada->getId());
 			filaQuebrada[1] = Convert::ToString(objQuebrada->getPosicionX());
 			filaQuebrada[2] = Convert::ToString(objQuebrada->getPosicionY());
 			filaQuebrada[3] = Convert::ToString(objQuebrada->getQuebradaId());
-			filaQuebrada[4] = objQuebrada->getFechaCreacion();
+			filaQuebrada[4] = objQuebrada->getCOMPort();
+			filaQuebrada[5] = objQuebrada->getFechaCreacion();
 			this->dataGridView1->Rows->Add(filaQuebrada);
 		}
 	}
@@ -387,5 +403,29 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	
 	}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+	int idNodoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+	NodosController^ objNodoController = gcnew NodosController();
+	objNodoController->eliminarNodo(idNodoEliminar);
+	List<NodoMonitoreo^>^ listaTodosNodos = objNodoController->buscarTodosNodos();
+	mostrarGrilla(listaTodosNodos);
+}
+	   /*Accion luego de dar click boton buscar Nodos por Quebrada seleccioanda*/
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	QuebradaController^ objQuebradaController = gcnew QuebradaController();
+	NodosController^ objNodoController = gcnew NodosController();
+
+	String^ quebradaBuscar = this->comboBox1->Text;
+	List<NodoMonitoreo^>^ ListaNodosXQuebrada = gcnew List<NodoMonitoreo^>();
+	Quebrada^ objQuebrada = objQuebradaController->buscarQuebradasXNombre(quebradaBuscar)[0];
+	List<NodoMonitoreo^>^ ListaNodos = objNodoController->buscarTodosNodos();
+	for (int i = 0; i < ListaNodos->Count; i++) {
+		if (ListaNodos[i]->getQuebradaId() == objQuebrada->getCodigo()) {
+			ListaNodosXQuebrada->Add(ListaNodos[i]);
+		}
+	}
+	mostrarGrilla(ListaNodosXQuebrada);
+}
 };
 }

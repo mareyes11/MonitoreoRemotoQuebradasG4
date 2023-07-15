@@ -16,6 +16,7 @@ Class SistemaMonitoreoRemotoQuebradasController.NodosController: AutoLayout, Ans
     escribirArchivoNodos(List`1): PrivateScope, Public, HideBySig
     escribirArchivoNodoEditado(NodoMonitoreo): PrivateScope, Public, HideBySig
     getIdDisponible(): PrivateScope, Public, HideBySig
+    cargarDataSensores(String, NodoMonitoreo): PrivateScope, Public, HideBySig
 Class SistemaMonitoreoRemotoQuebradasController.QuebradaController: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:

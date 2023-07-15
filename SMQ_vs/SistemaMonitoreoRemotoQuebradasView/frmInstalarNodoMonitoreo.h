@@ -1,4 +1,5 @@
 #pragma once
+#define PI 3.141592
 
 namespace SistemaMonitoreoRemotoQuebradasView {
 
@@ -50,7 +51,10 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ buttonCancelar;
+
+
+
 	private: System::Windows::Forms::GroupBox^ groupBox4;
 	private: System::Windows::Forms::Button^ button4;
 
@@ -89,8 +93,20 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 	private: System::Windows::Forms::Label^ label15;
 	private: System::Windows::Forms::Label^ label13;
 	private: System::Windows::Forms::TrackBar^ trackBar1;
-	private: burbujaNivel^ nivelInclinometro = gcnew burbujaNivel();
+	private: System::Windows::Forms::Label^ label16;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::Label^ label17;
 
+	private: burbujaNivel^ nivelInclinometro = gcnew burbujaNivel();
+	private: NodoMonitoreo^ objNuevoNodo = gcnew NodoMonitoreo();
+	private: List<Quebrada^>^ quebradasDisponibles;
+	private: QuebradaController^ objQuebradaController = gcnew QuebradaController();
+	private: NodosController^ objNodoController = gcnew NodosController();
+	private: Boolean conectado = false;
+	private: System::Windows::Forms::Label^ labelAltimetro;
+	private: System::Windows::Forms::Label^ label18;
+	private: Boolean alarma_test = false;
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
@@ -105,6 +121,9 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -114,9 +133,13 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->trackBar1 = (gcnew System::Windows::Forms::TrackBar());
 			this->labelIncXY = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->checkBoxLluvia = (gcnew System::Windows::Forms::CheckBox());
@@ -131,27 +154,31 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->buttonCancelar = (gcnew System::Windows::Forms::Button());
 			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->serialPort1 = (gcnew System::IO::Ports::SerialPort(this->components));
 			this->labelRawData = (gcnew System::Windows::Forms::Label());
-			this->trackBar1 = (gcnew System::Windows::Forms::TrackBar());
-			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->labelAltimetro = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->groupBox2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBarTemperatura))->BeginInit();
 			this->groupBox4->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->labelAltimetro);
+			this->groupBox1->Controls->Add(this->label18);
+			this->groupBox1->Controls->Add(this->label16);
+			this->groupBox1->Controls->Add(this->button1);
+			this->groupBox1->Controls->Add(this->dateTimePicker1);
 			this->groupBox1->Controls->Add(this->label5);
 			this->groupBox1->Controls->Add(this->label4);
 			this->groupBox1->Controls->Add(this->textBox2);
@@ -167,11 +194,41 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Datos del Nodo";
 			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(250, 75);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(84, 13);
+			this->label16->TabIndex = 11;
+			this->label16->Text = L"Fecha creacion:";
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::Red;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 5.25F));
+			this->button1->Location = System::Drawing::Point(366, 10);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(57, 24);
+			this->button1->TabIndex = 1;
+			this->button1->Text = L"TEST ALARMA";
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &frmInstalarNodoMonitoreo::button1_Click);
+			// 
+			// dateTimePicker1
+			// 
+			this->dateTimePicker1->Enabled = false;
+			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
+			this->dateTimePicker1->Location = System::Drawing::Point(342, 72);
+			this->dateTimePicker1->Name = L"dateTimePicker1";
+			this->dateTimePicker1->Size = System::Drawing::Size(78, 20);
+			this->dateTimePicker1->TabIndex = 10;
+			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
 			this->label5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->label5->Location = System::Drawing::Point(294, 30);
+			this->label5->Location = System::Drawing::Point(302, 14);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(46, 15);
 			this->label5->TabIndex = 9;
@@ -180,7 +237,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(228, 30);
+			this->label4->Location = System::Drawing::Point(229, 16);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(67, 13);
 			this->label4->TabIndex = 8;
@@ -188,7 +245,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(269, 70);
+			this->textBox2->Location = System::Drawing::Point(158, 69);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(69, 20);
 			this->textBox2->TabIndex = 5;
@@ -196,15 +253,15 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(180, 73);
+			this->label3->Location = System::Drawing::Point(114, 73);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(89, 13);
+			this->label3->Size = System::Drawing::Size(38, 13);
 			this->label3->TabIndex = 4;
-			this->label3->Text = L"Ubicacion Y (Px):";
+			this->label3->Text = L"Y (Px):";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(98, 69);
+			this->textBox1->Location = System::Drawing::Point(50, 69);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(59, 20);
 			this->textBox1->TabIndex = 3;
@@ -214,9 +271,9 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(6, 72);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(89, 13);
+			this->label2->Size = System::Drawing::Size(38, 13);
 			this->label2->TabIndex = 2;
-			this->label2->Text = L"Ubicacion X (Px):";
+			this->label2->Text = L"X (Px):";
 			// 
 			// comboBox1
 			// 
@@ -238,33 +295,48 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			// 
 			// groupBox3
 			// 
-			this->groupBox3->Controls->Add(this->button1);
+			this->groupBox3->Controls->Add(this->label17);
+			this->groupBox3->Controls->Add(this->radioButton1);
 			this->groupBox3->Controls->Add(this->pictureBox1);
-			this->groupBox3->Location = System::Drawing::Point(7, 177);
+			this->groupBox3->Location = System::Drawing::Point(11, 177);
 			this->groupBox3->Name = L"groupBox3";
 			this->groupBox3->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->groupBox3->Size = System::Drawing::Size(429, 286);
+			this->groupBox3->Size = System::Drawing::Size(420, 290);
 			this->groupBox3->TabIndex = 6;
 			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Previsualizacion";
 			// 
-			// button1
+			// label17
 			// 
-			this->button1->BackColor = System::Drawing::Color::Red;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 5.25F));
-			this->button1->Location = System::Drawing::Point(28, 34);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(57, 24);
-			this->button1->TabIndex = 1;
-			this->button1->Text = L"TEST ALARMA";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &frmInstalarNodoMonitoreo::button1_Click);
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(171, 268);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(83, 13);
+			this->label17->TabIndex = 12;
+			this->label17->Text = L"Previsualización";
+			this->label17->Click += gcnew System::EventHandler(this, &frmInstalarNodoMonitoreo::label17_Click);
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoCheck = false;
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->BackColor = System::Drawing::Color::Black;
+			this->radioButton1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->radioButton1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->radioButton1->Location = System::Drawing::Point(147, 79);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(60, 17);
+			this->radioButton1->TabIndex = 1;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"Nodo 1";
+			this->radioButton1->UseVisualStyleBackColor = false;
+			this->radioButton1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &frmInstalarNodoMonitoreo::radioButton1_MouseDown);
+			this->radioButton1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &frmInstalarNodoMonitoreo::radioButton1_MouseMove);
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(7, 13);
+			this->pictureBox1->Location = System::Drawing::Point(0, 0);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(420, 261);
+			this->pictureBox1->Size = System::Drawing::Size(420, 265);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -272,7 +344,6 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			// groupBox2
 			// 
 			this->groupBox2->Controls->Add(this->label15);
-			this->groupBox2->Controls->Add(this->label13);
 			this->groupBox2->Controls->Add(this->trackBar1);
 			this->groupBox2->Controls->Add(this->labelIncXY);
 			this->groupBox2->Controls->Add(this->label7);
@@ -287,6 +358,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->groupBox2->Controls->Add(this->label12);
 			this->groupBox2->Controls->Add(this->label14);
 			this->groupBox2->Controls->Add(this->label6);
+			this->groupBox2->Controls->Add(this->label13);
 			this->groupBox2->Location = System::Drawing::Point(7, 469);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(432, 122);
@@ -295,11 +367,39 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->groupBox2->Text = L"Data sensores";
 			this->groupBox2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &frmInstalarNodoMonitoreo::groupBox2_Paint);
 			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label15->Location = System::Drawing::Point(346, 44);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(32, 15);
+			this->label15->TabIndex = 23;
+			this->label15->Text = L"1.1m";
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(361, 104);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(73, 13);
+			this->label13->TabIndex = 22;
+			this->label13->Text = L"Columna H2O";
+			// 
+			// trackBar1
+			// 
+			this->trackBar1->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->trackBar1->Location = System::Drawing::Point(381, 10);
+			this->trackBar1->Name = L"trackBar1";
+			this->trackBar1->Orientation = System::Windows::Forms::Orientation::Vertical;
+			this->trackBar1->Size = System::Drawing::Size(45, 90);
+			this->trackBar1->TabIndex = 21;
+			// 
 			// labelIncXY
 			// 
 			this->labelIncXY->AutoSize = true;
 			this->labelIncXY->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->labelIncXY->Location = System::Drawing::Point(287, 94);
+			this->labelIncXY->Location = System::Drawing::Point(282, 95);
 			this->labelIncXY->Name = L"labelIncXY";
 			this->labelIncXY->Size = System::Drawing::Size(38, 15);
 			this->labelIncXY->TabIndex = 20;
@@ -308,7 +408,7 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(229, 96);
+			this->label7->Location = System::Drawing::Point(221, 96);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(61, 13);
 			this->label7->TabIndex = 19;
@@ -436,19 +536,19 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(70, 25);
 			this->button2->TabIndex = 10;
-			this->button2->Text = L"Instalar";
+			this->button2->Text = L"Crear";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &frmInstalarNodoMonitoreo::button2_Click);
 			// 
-			// button3
+			// buttonCancelar
 			// 
-			this->button3->Location = System::Drawing::Point(364, 592);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(70, 25);
-			this->button3->TabIndex = 11;
-			this->button3->Text = L"Cancelar";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &frmInstalarNodoMonitoreo::button3_Click);
+			this->buttonCancelar->Location = System::Drawing::Point(364, 592);
+			this->buttonCancelar->Name = L"buttonCancelar";
+			this->buttonCancelar->Size = System::Drawing::Size(70, 25);
+			this->buttonCancelar->TabIndex = 11;
+			this->buttonCancelar->Text = L"Cancelar";
+			this->buttonCancelar->UseVisualStyleBackColor = true;
+			this->buttonCancelar->Click += gcnew System::EventHandler(this, &frmInstalarNodoMonitoreo::button3_Click);
 			// 
 			// groupBox4
 			// 
@@ -504,93 +604,87 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 			this->labelRawData->TabIndex = 17;
 			this->labelRawData->Text = L"tramaDatos";
 			// 
-			// trackBar1
+			// label18
 			// 
-			this->trackBar1->BackColor = System::Drawing::SystemColors::ControlDark;
-			this->trackBar1->Location = System::Drawing::Point(381, 10);
-			this->trackBar1->Name = L"trackBar1";
-			this->trackBar1->Orientation = System::Windows::Forms::Orientation::Vertical;
-			this->trackBar1->Size = System::Drawing::Size(45, 90);
-			this->trackBar1->TabIndex = 21;
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(229, 45);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(53, 13);
+			this->label18->TabIndex = 12;
+			this->label18->Text = L"Altimetro: ";
 			// 
-			// label13
+			// labelAltimetro
 			// 
-			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(353, 99);
-			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(73, 13);
-			this->label13->TabIndex = 22;
-			this->label13->Text = L"Columna H2O";
-			// 
-			// label15
-			// 
-			this->label15->AutoSize = true;
-			this->label15->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->label15->Location = System::Drawing::Point(346, 44);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(32, 15);
-			this->label15->TabIndex = 23;
-			this->label15->Text = L"1.1m";
+			this->labelAltimetro->AutoSize = true;
+			this->labelAltimetro->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->labelAltimetro->Location = System::Drawing::Point(302, 43);
+			this->labelAltimetro->Name = L"labelAltimetro";
+			this->labelAltimetro->Size = System::Drawing::Size(46, 15);
+			this->labelAltimetro->TabIndex = 13;
+			this->labelAltimetro->Text = L"idNodo ";
 			// 
 			// frmInstalarNodoMonitoreo
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(448, 624);
+			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->labelRawData);
 			this->Controls->Add(this->groupBox4);
-			this->Controls->Add(this->button3);
+			this->Controls->Add(this->buttonCancelar);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->groupBox2);
-			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmInstalarNodoMonitoreo";
-			this->Text = L"Instalacion de nodo de monitoreo";
+			this->Text = L"Instalación de nodo de monitoreo";
 			this->Load += gcnew System::EventHandler(this, &frmInstalarNodoMonitoreo::frmInstalarNodoMonitoreo_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->groupBox3->ResumeLayout(false);
+			this->groupBox3->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBarTemperatura))->EndInit();
 			this->groupBox4->ResumeLayout(false);
 			this->groupBox4->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+		private: System::Void comboBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+
+
+		}
+			   /*Accion luego de presionar boton Cancelar*/
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 		if (conectado)
 			serialPort1->Close();
 	}
-	private: System::Void comboBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	
-		   List<Quebrada^>^ quebradasDisponibles;
-		   QuebradaController^ objQuebradaConrtoller = gcnew QuebradaController();
-
+	/*Precarga informacion durante el evneto load del la ventana*/
 	private: System::Void frmInstalarNodoMonitoreo_Load(System::Object^ sender, System::EventArgs^ e) {
+		
+		String^ idDisponible = Convert::ToString(objNodoController->getIdDisponible());
+		this->label5->Text = idDisponible;
 		array<String^>^ listaPuertos = serialPort1->GetPortNames();
 		this->comboBox2->Items->Clear();
 		for (int i = 0; i < listaPuertos->Length; i++) {
 			this->comboBox2->Items->Add(listaPuertos[i]);
 		}
-		
-		quebradasDisponibles = objQuebradaConrtoller->buscarTodasQuebradas();
+		/*Precarga Quebradas disponibles*/
+		quebradasDisponibles = objQuebradaController->buscarTodasQuebradas();
 		this->comboBox1->Items->Clear(); /*Borra todos los valores que tenga el combo box*/
 		for (int i = 0; i < quebradasDisponibles->Count; i++) {
 			this->comboBox1->Items->Add(quebradasDisponibles[i]->getNombre());
 		}
-		NodosController^ objNodoController = gcnew NodosController();
-
-		this->pictureBox1->Image = nullptr;
-		this->pictureBox1->Image = this->pictureBox1->Image->FromFile("1.jpg");
-
-		//Inicializa burbuja nivel
+		this->comboBox1->SelectedIndex = 0;//Autoseleeciona la primera de la lista de quebradas disponibles
+		
+		/*Carga la imagen correspondiente*/
+		actualizaImagenQuebrada();
+		/*Inicializa dibujo burbuja nivel*/
 		nivelInclinometro->setInicioX(240);
 		nivelInclinometro->setInicioY(20);
 		nivelInclinometro->setAncho(60);
@@ -598,109 +692,148 @@ namespace SistemaMonitoreoRemotoQuebradasView {
 		nivelInclinometro->setAngY(0);
 		nivelInclinometro->setColor(Color::Black);
 	}
-
-	Boolean conectado = false;
-	Boolean alarma_test = false;
-
+		   /*Logica boton conectar/desconectar*/
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (!conectado) {
-			String^ comName = this->comboBox2->Text;
-			serialPort1->PortName = comName;
+		String^ COMNameSel = this->comboBox2->Text;
+		if (!conectado && (COMNameSel != "")) {
+			serialPort1->PortName = COMNameSel;
 			serialPort1->BaudRate = 38400;
 			serialPort1->Open();
 		if (serialPort1->IsOpen) {
 			button4->Text = "Desconectar";
 			conectado = true;
-			}
-			
+			}	
 		}
 		else if (conectado) {
 			serialPort1->Close();
 			button4->Text = "Conectar";
 			conectado = false;
 		}
-		
-
-	
 	}
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	
-	String^ codigoQuebradaSeleccionada = Convert::ToString(quebradasDisponibles[this->comboBox1->SelectedIndex]->getCodigo());
-	this->pictureBox1->Image = nullptr;
-	this->pictureBox1->Image = this->pictureBox1->Image->FromFile(codigoQuebradaSeleccionada + ".jpg");
+	private: void actualizaImagenQuebrada() {
+		String^ codigoQuebradaSeleccionada = Convert::ToString(quebradasDisponibles[this->comboBox1->SelectedIndex]->getCodigo());
+		this->pictureBox1->Image = nullptr;
+		this->pictureBox1->Image = this->pictureBox1->Image->FromFile(codigoQuebradaSeleccionada + ".jpg");
 
+	}
+		   /*Accion cuando se cambia la seleccion en combobox de seleccion quebrada*/
+	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		actualizaImagenQuebrada();
+	}
 
-}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (conectado && !alarma_test) {
-		serialPort1->WriteLine("ALRM_on");
-		alarma_test = true;
-		this->button1->Text = "APAGAR ALARMA";
-	}
-	else if(conectado) {
-		serialPort1->WriteLine("ALRM_off");
-		this->button1->Text = "TEST ALARMA";
-		alarma_test = false;
-	}
-}
-	   array<String^>^ datosSeparados;
-	   String^ lectura;
-private: System::Void serialPort1_DataReceived(System::Object^ sender, System::IO::Ports::SerialDataReceivedEventArgs^ e) {
-	lectura = serialPort1->ReadLine();
-	String^ separador = " ";
-	datosSeparados = lectura->Split(separador->ToCharArray());
-	this->groupBox2->Invalidate();
-	/*Salida datos serial :
-	nodoID | incX_deg | incY_deg | accX_g | accY_g | accZ_g | tBMP_degC | pBMP_Pa | hSoil_per | rain | alarm */
-	//=progressBarHumedad->Value = Convert::ToInt32(datosSeparados[8]);
-	
-}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	
-}
-private: System::Void groupBox2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-#define PI 3.141592
-	Graphics^ objGraphics = e->Graphics;
-	if (conectado) {
-		this->labelRawData->Text = lectura;
-		this->progressBarHumedad->Value = Convert::ToInt32(datosSeparados[8]) * 100 / 1024;
-		this->labelHumedad->Text = Convert::ToString(Convert::ToInt32(datosSeparados[8]) * 100 / 1024) + "%";
-		this->labelTemperatura->Text = Convert::ToString(datosSeparados[6]) + "°C";
-		this->trackBarTemperatura->Value = Convert::ToDouble(datosSeparados[6]);
-		this->labelIncXY->Text = Convert::ToString(datosSeparados[1]) + "° " + Convert::ToString(datosSeparados[2]) + "° ";
-		this->nivelInclinometro->setAngX(Convert::ToDouble(datosSeparados[1]));
-		this->nivelInclinometro->setAngY(Convert::ToDouble(datosSeparados[2]));
-		if (Convert::ToInt32(datosSeparados[9]) == 1) {
-			this->checkBoxLluvia->Checked = true;
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (conectado && !alarma_test) {
+			serialPort1->WriteLine("ALRM_on");
+			alarma_test = true;
+			this->button1->Text = "APAGAR ALARMA";
 		}
-		else this->checkBoxLluvia->Checked = false;
+		else if(conectado) {
+			serialPort1->WriteLine("ALRM_off");
+			this->button1->Text = "TEST ALARMA";
+			alarma_test = false;
+		}
 	}
-		Pen^ objLapiz = gcnew Pen(nivelInclinometro->getColor());
-		int X = nivelInclinometro->getInicioX();
-		int Y = nivelInclinometro->getInicioY();
-		int A = nivelInclinometro->getAncho();
-		objGraphics->DrawRectangle(objLapiz,X, Y, A, A);
+	  
+	private: System::Void serialPort1_DataReceived(System::Object^ sender, System::IO::Ports::SerialDataReceivedEventArgs^ e) {
+		String^ lectura = serialPort1->ReadLine();
+		this->objNuevoNodo = objNodoController->cargarDataSensores(lectura, objNuevoNodo);
+		this->groupBox2->Invalidate();
+		/*Salida datos serial :
+		nodoID | incX_deg | incY_deg | accX_g | accY_g | accZ_g | tBMP_degC | pBMP_Pa | hSoil_per | rain | alarm */
+		//=progressBarHumedad->Value = Convert::ToInt32(datosSeparados[8]);
+	
+	}
+	   /*Accion luego de precionar el boton crear Nodo*/
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		int idNodoNuevo = Convert::ToInt32(this->label5->Text);
+		int idQuebradaSeleccionada = Convert::ToInt32(quebradasDisponibles[this->comboBox1->SelectedIndex]->getCodigo());
+		int posX = Convert::ToInt32(this->textBox1->Text);
+		int posY = Convert::ToInt32(this->textBox2->Text);
+		String^ comName = this->comboBox2->Text;
+		String^ fechaCreacion = this->dateTimePicker1->Text;
+		NodoMonitoreo^ nuevoNodo = gcnew NodoMonitoreo(idNodoNuevo, posX, posY, idQuebradaSeleccionada, comName, fechaCreacion);
 
-		int X1 = X + A * 0.5;
-		int Y1 = Y + A*0.1;
-		int X2 = X + A * 0.5;
-		int Y2 = Y + A*0.9;
-		objGraphics->DrawLine(objLapiz,X1, Y1, X2, Y2);
+		NodosController^ objNodoController = gcnew NodosController();
+		List<NodoMonitoreo^>^ listaNodos = objNodoController->buscarTodosNodos();
+		listaNodos->Add(nuevoNodo);
+		objNodoController->escribirArchivoNodos(listaNodos);
+		MessageBox::Show("Nodo creado en el sistema con exito");
+		this->Close();
+		if (conectado) {
+			serialPort1->Close();
+			conectado = false;
+			}
+	}
+	private: System::Void groupBox2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 
-		X1 = X + A * 0.1;
-		Y1 = Y + A * 0.5;
-		X2 = X + A * 0.9;
-		Y2 = Y + A * 0.5;
-		objGraphics->DrawLine(objLapiz, X1, Y1, X2, Y2);
+		Graphics^ objGraphics = e->Graphics;
+		if (conectado) {
+			double humedad = Convert::ToInt32(this->objNuevoNodo->getSensorHumedad()->getHumedad());
+			double temperatura = this->objNuevoNodo->getSensorTemperatura()->getTemperatura();
+			double inclinacionX = this->objNuevoNodo->getSensorInc()->getIncX();
+			double inclinacionY = this->objNuevoNodo->getSensorInc()->getIncY();
+			int lluvia = this->objNuevoNodo->getSensorLluvia()->getValor();
+			double pressure = this->objNuevoNodo->getSensorNivelAgua()->getPresion_hPa();
+			double altitudEstimada = 44330.0 * (1.0 - Math::Pow((pressure / 1015.32),1/5.255));
 
-		objLapiz->Color = Color::Red;
-		int offsetX = this->nivelInclinometro->getAngX() * PI / 180 * A;
-		int offsetY = this->nivelInclinometro->getAngY() * PI / 180 * A;
-		X = X + A * 0.3 - offsetX;
-		Y = Y + A * 0.3 + offsetY;
-		A = A * 0.4;
-		objGraphics->DrawEllipse(objLapiz, X, Y, A, A);
+			this->progressBarHumedad->Value = humedad;
+			this->labelHumedad->Text = Convert::ToString(humedad) + "%";
+			this->labelTemperatura->Text = Convert::ToString(temperatura) + "°C";
+			this->trackBarTemperatura->Value = temperatura;
+			this->labelIncXY->Text = Convert::ToString(inclinacionX) + "° " + Convert::ToString(inclinacionY) + "° ";
+			this->nivelInclinometro->setAngX(inclinacionX);
+			this->nivelInclinometro->setAngY(inclinacionY);
+			this->labelAltimetro->Text = Convert::ToString((int)altitudEstimada)+ " msnm";
+			if (lluvia == 1) {
+				this->checkBoxLluvia->Checked = true;
+			}
+			else this->checkBoxLluvia->Checked = false;
+		}
+			Pen^ objLapiz = gcnew Pen(nivelInclinometro->getColor());
+			int X = nivelInclinometro->getInicioX();
+			int Y = nivelInclinometro->getInicioY();
+			int A = nivelInclinometro->getAncho();
+			objGraphics->DrawRectangle(objLapiz,X, Y, A, A);
 
-}
+			int X1 = X + A * 0.5;
+			int Y1 = Y + A*0.1;
+			int X2 = X + A * 0.5;
+			int Y2 = Y + A*0.9;
+			objGraphics->DrawLine(objLapiz,X1, Y1, X2, Y2);
+
+			X1 = X + A * 0.1;
+			Y1 = Y + A * 0.5;
+			X2 = X + A * 0.9;
+			Y2 = Y + A * 0.5;
+			objGraphics->DrawLine(objLapiz, X1, Y1, X2, Y2);
+
+			objLapiz->Color = Color::Red;
+			int offsetX = this->nivelInclinometro->getAngX() * PI / 180 * A;
+			int offsetY = this->nivelInclinometro->getAngY() * PI / 180 * A;
+			X = X + A * 0.3 - offsetX;
+			Y = Y + A * 0.3 + offsetY;
+			A = A * 0.4;
+			objGraphics->DrawEllipse(objLapiz, X, Y, A, A);
+
+	}
+	   private: Point MouseDownLocation;
+
+	private: System::Void radioButton1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
+			MouseDownLocation = e->Location;
+		}
+
+	}
+	private: System::Void radioButton1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
+			radioButton1->Left = e->X + radioButton1->Left - MouseDownLocation.X;
+			radioButton1->Top = e->Y + radioButton1->Top - MouseDownLocation.Y;
+			/*Se carga la pos X e Y estimada del circulo del radiobutton*/
+			this->textBox1->Text = Convert::ToString(radioButton1->Left + 55);
+			this->textBox2->Text = Convert::ToString(radioButton1->Top + 8);
+		}
+	}
+	private: System::Void label17_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
 };
 }

@@ -19,11 +19,12 @@ NodoMonitoreo::NodoMonitoreo(int id, double ubicacionX, double ubicacionY, int i
 	this->objSensorTem = objSensorTem;
 	this->objSensorNiv = objSensorNiv;
 }
-NodoMonitoreo::NodoMonitoreo(int id, double ubicacionX, double ubicacionY, int idQuebrada, String^ fechaCreacion) {
+NodoMonitoreo::NodoMonitoreo(int id, double ubicacionX, double ubicacionY, int idQuebrada, String^ COMPort, String^ fechaCreacion) {
 	this->id = id;
 	this->ubicacionX = ubicacionX;
 	this->ubicacionY = ubicacionY;
 	this->idQuebrada = idQuebrada;
+	this->COMPort = COMPort;
 	this->fechaCreacion = fechaCreacion;
 }
 int NodoMonitoreo::getId() {
@@ -51,10 +52,40 @@ int NodoMonitoreo::getQuebradaId() {
 void NodoMonitoreo::setQuebradaId(int idQuebrada) {
 	this->idQuebrada = idQuebrada;
 }
+String^ NodoMonitoreo::getCOMPort() {
+	return this->COMPort;
+}
+void NodoMonitoreo::setCOMPort(String^ COMPort) {
+	this->COMPort = COMPort;
+}
 
 String^ NodoMonitoreo::getFechaCreacion() {
 	return this->fechaCreacion;
 }
 void NodoMonitoreo::setFechaCreacion(String^ fechaCreacion) {
 	this->fechaCreacion = fechaCreacion;
+}
+Boolean NodoMonitoreo::getAlarmaEstado() {
+	return this->alarmaActivada;
+}
+void NodoMonitoreo::setAlarmaEstado(Boolean alarmaActivada) {
+	this->alarmaActivada = alarmaActivada;
+}
+SensorAcelerometro^ NodoMonitoreo::getSensorAcc() {
+	return this->objSensorAce;
+}
+SensorHumedad^ NodoMonitoreo::getSensorHumedad() {
+	return this->objSensorHum;
+}
+SensorInclinacion^  NodoMonitoreo::getSensorInc() {
+	return this->objSensorInc;
+}
+SensorLluvia^  NodoMonitoreo::getSensorLluvia() {
+	return this->objSensorLlu;
+}
+SensorNivelAgua^ NodoMonitoreo::getSensorNivelAgua() {
+	return this->objSensorNiv;
+}
+SensorTempNodo^ NodoMonitoreo::getSensorTemperatura() {
+	return this->objSensorTem;
 }

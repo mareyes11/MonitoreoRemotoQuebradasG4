@@ -18,19 +18,21 @@ namespace SistemaMonitoreoRemotoQuebradasModel {
 		double ubicacionX;
 		double ubicacionY;
 		int idQuebrada;
+		Boolean alarmaActivada = false;
+		String^ COMPort;
 		String^ fechaCreacion;
-		SensorNivelAgua^ objSensorNiv;
-		SensorTempNodo^ objSensorTem;
-		SensorLluvia^ objSensorLlu;
-		SensorInclinacion^ objSensorInc;
-		SensorHumedad^ objSensorHum;
-		SensorAcelerometro^ objSensorAce;
+		SensorNivelAgua^ objSensorNiv = gcnew SensorNivelAgua();
+		SensorTempNodo^ objSensorTem = gcnew SensorTempNodo();
+		SensorLluvia^ objSensorLlu = gcnew SensorLluvia;
+		SensorInclinacion^ objSensorInc = gcnew SensorInclinacion();
+		SensorHumedad^ objSensorHum = gcnew SensorHumedad();
+		SensorAcelerometro^ objSensorAce = gcnew SensorAcelerometro();
 
 
 	public:
 		NodoMonitoreo();
 		NodoMonitoreo(int id, double ubicacionX, double ubicacionY, int idQuebrada, String^ fechaCreacion,  SensorNivelAgua^ objSensorNiv, SensorTempNodo^ objSensorTem, SensorLluvia^ objSensorLlu, SensorInclinacion^ objSensorInc, SensorHumedad^ objSensorHum, SensorAcelerometro^ objSensorAce);
-		NodoMonitoreo(int id, double ubicacionX, double ubicacionY, int idQuebrada, String^ fechaCreacion);
+		NodoMonitoreo(int id, double ubicacionX, double ubicacionY, int idQuebrada, String^ COMPort, String^ fechaCreacion);
 
 		int getId();
 		void setId(int id);
@@ -44,7 +46,20 @@ namespace SistemaMonitoreoRemotoQuebradasModel {
 		int getQuebradaId();
 		void setQuebradaId(int idQuebrada);
 
+		String^ getCOMPort();
+		void setCOMPort(String^ COMPort);
+
 		String^ getFechaCreacion();
 		void setFechaCreacion(String^ fechaCreacion);
+
+		Boolean getAlarmaEstado();
+		void setAlarmaEstado(Boolean alarmaActivada);
+
+		SensorAcelerometro^ getSensorAcc();
+		SensorHumedad^ getSensorHumedad();
+		SensorInclinacion^ getSensorInc();
+		SensorLluvia^ getSensorLluvia();
+		SensorNivelAgua^ getSensorNivelAgua();
+		SensorTempNodo^ getSensorTemperatura();
 	};
 }

@@ -15,5 +15,13 @@ namespace SistemaMonitoreoRemotoQuebradasModel {
 	public:
 		SensorInclinacion();
 		SensorInclinacion(int id, int nodoAsociado, double ultimaLecturaX, double ultimaLecturaY);
+		int getId();
+		void setId(int id);
+		int getIdNodo();
+		void setIdNodo(int id);
+		void setIncX(double incX);
+		void setIncY(double incY);
+		double getIncX();
+		double getIncY();
 	};
 }
