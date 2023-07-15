@@ -20,8 +20,8 @@ namespace SistemaMonitoreoRemotoQuebradasController
 		Quebrada^ buscarQuebradaXCodigo(int codigoQuebrada);
 		List<Quebrada^>^ buscarQuebradasxNombxId(String^ nombreQuebrada, String^ codigoQuebrada);
 		void eliminarQuebrada(int codigoQuebradaEliminar);
-		void escribirArchivoQuebradas(List<Quebrada^>^ ListaQuebradas);
-		void escribirArchivoQuebradaEditada(Quebrada^ QuebradaEditada);
+		void EditarQuebrada(Quebrada^ QuebradaEditada);
+		void AgregarQuebrada(Quebrada^ QuebradaEditada);
 		int getCodigoQuebradaDisponible(void);//Metodo que devuelve un codigo de quebrada disponible
 	};
 

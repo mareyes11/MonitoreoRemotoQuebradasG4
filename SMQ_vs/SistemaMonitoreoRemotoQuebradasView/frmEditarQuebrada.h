@@ -292,7 +292,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->objQuebrada->setPosicionX(Convert::ToInt32(this->textBox2->Text));
 	this->objQuebrada->setPosicionY(Convert::ToInt32(this->textBox3->Text));
 	this->objQuebrada->setRadioExtension(Convert::ToInt32(this->textBox4->Text));
-	objQuebradaController->escribirArchivoQuebradaEditada(this->objQuebrada);
+	objQuebradaController->EditarQuebrada(this->objQuebrada);
 	MessageBox::Show("Se actualizo la Quebrada seleccionada >> ID: " + Convert::ToString(this->objQuebrada->getCodigo()));
 	this->Close();
 	}

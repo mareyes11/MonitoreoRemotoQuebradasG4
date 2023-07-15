@@ -19,8 +19,8 @@ namespace SistemaMonitoreoRemotoQuebradasController
 		NodoMonitoreo^ buscarNodoXId(int id);
 		List<NodoMonitoreo^>^ buscarNodoxIdQuebrada(int idQuebrada);
 		void eliminarNodo(int idNodoEliminar);
-		void escribirArchivoNodos(List<NodoMonitoreo^>^ ListaNodos);
-		void escribirArchivoNodoEditado(NodoMonitoreo^ NodoEditado);
+		void agregarNodo(NodoMonitoreo^ objNodo);
+		void editarNodo(NodoMonitoreo^ NodoEditado);
 		int getIdDisponible(void);//Metodo que devuelve un codigo de quebrada disponible
 	};
 

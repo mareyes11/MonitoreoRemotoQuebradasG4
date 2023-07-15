@@ -311,9 +311,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	objQuebradaNueva->setFechaCreacion(fechaCreacion);
 
 
-	List<Quebrada^>^ listaQuebradas = objQuebradaController->buscarTodasQuebradas();
-	listaQuebradas->Add(objQuebradaNueva);
-	objQuebradaController->escribirArchivoQuebradas(listaQuebradas);
+	objQuebradaController->AgregarQuebrada(objQuebradaNueva);
 	MessageBox::Show("Quebrada creada con exito");
 	this->Close();
 	}

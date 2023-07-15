@@ -98,38 +98,39 @@ List<NodoMonitoreo^>^ NodosController::buscarNodoxIdQuebrada(int idQuebrada) {
 }
 
 void NodosController::eliminarNodo(int idNodoEliminar) {
-	List<NodoMonitoreo^>^ listaNodosTemp = buscarTodosNodos();
-	for (int i = 0; i < listaNodosTemp->Count; i++) {
-		NodoMonitoreo^ objNodo = listaNodosTemp[i];
-		if (objNodo->getId() == idNodoEliminar) {
-			listaNodosTemp->RemoveAt(i);
-			break;
-		}
-	}
-	escribirArchivoNodos(listaNodosTemp);
+	abrirConexion();
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+	objSentencia->CommandText = "delete from Nodo where codigo = " + idNodoEliminar + ";";
+	objSentencia->ExecuteNonQuery();
+	cerrarConexion();
 }
-void NodosController::escribirArchivoNodos(List<NodoMonitoreo^>^ ListaNodos) {
-	array<String^>^ lineasArchivo = gcnew array<String^>(ListaNodos->Count);
-	for (int i = 0; i < ListaNodos->Count; i++) {
-		NodoMonitoreo^ objNodo = ListaNodos[i];
-		lineasArchivo[i] = objNodo->getId() + ";" + objNodo->getPosicionX() + ";" + objNodo->getPosicionY() + ";" + objNodo->getQuebradaId() + ";" + objNodo->getFechaCreacion();
-	}
-	File::WriteAllLines("Nodos.txt", lineasArchivo);
-}
-void NodosController::escribirArchivoNodoEditado(NodoMonitoreo^ NodoEditado) {
-	List<NodoMonitoreo^>^ listaTodosNodos = buscarTodosNodos();
-	array<String^>^ lineasArchivo = gcnew array<String^>(listaTodosNodos->Count);
-	for (int i = 0; i < listaTodosNodos->Count; i++) {
-		NodoMonitoreo^ objNodo = listaTodosNodos[i];
-		if (objNodo->getId() == NodoEditado->getId()) {
-			objNodo->setPosicionX(NodoEditado->getPosicionX());
-			objNodo->setPosicionY(NodoEditado->getPosicionY());
-			objNodo->setQuebradaId(NodoEditado->getQuebradaId());
 
-		}
-		lineasArchivo[i] = objNodo->getId() + ";" + objNodo->getPosicionX() + ";" + objNodo->getPosicionY() + ";" + objNodo->getQuebradaId() + ";" + objNodo->getFechaCreacion();
-	}
-	File::WriteAllLines("Nodos.txt", lineasArchivo);
+void NodosController::agregarNodo(NodoMonitoreo^ objNodo) {
+	abrirConexion();
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+	objSentencia->CommandText = "insert into Nodo(ubicacionX, ubicacionY, idQuebrada, fechaCreacion) values (" + objNodo->getPosicionX() + "," + objNodo->getPosicionY() + "," + objNodo->getQuebradaId() + ",'" + objNodo->getFechaCreacion() + "');";
+	objSentencia->ExecuteNonQuery();
+	cerrarConexion();
+}
+
+void NodosController::editarNodo(NodoMonitoreo^ NodoEditado) {
+	abrirConexion();
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+	objSentencia->CommandText = "update Nodo set ubicacionX=" + NodoEditado->getPosicionX() + ", ubicacionY=" + NodoEditado->getPosicionY() + ", idQuebrada=" + NodoEditado->getQuebradaId() + ", fechaCreacion='" + NodoEditado->getFechaCreacion() + "');";
+	objSentencia->ExecuteNonQuery();
+	cerrarConexion();
 }
 int NodosController::getIdDisponible() {
 	List<NodoMonitoreo^>^ listaNodosTemp = buscarTodosNodos();

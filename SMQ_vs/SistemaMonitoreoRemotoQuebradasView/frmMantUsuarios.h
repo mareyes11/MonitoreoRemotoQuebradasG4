@@ -359,7 +359,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoUsuarioEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 	UsuarioController^ objUsuarioController = gcnew UsuarioController;
-	Usuario^ objUsuario = objUsuarioController->buscarUsuario(codigoUsuarioEditar);
+	Usuario^ objUsuario = objUsuarioController->buscarXCodigo(codigoUsuarioEditar);
 	frmEditarUsuario^ ventanaEditarUsuario = gcnew frmEditarUsuario(objUsuario);
 	ventanaEditarUsuario->ShowDialog();
 }
